@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数字自动增加</title>
+</head>
+<body>
+<div id="app">
+    <input type="number" v-model="number"/>
+    <!--<button onclick="handleIncrement()">点击 +1</button>  &lt;!&ndash;调用函数方法一定要加"()"&ndash;&gt;-->
+
+    <!--① 当函数语句简单可以直接内联写 -->
+    <!--<button v-on:click="number++">点击 +1</button>-->
+
+    <!--② 当函数语句表较多，把处理写到Javascript中 -->
+    <button v-on:click="handleIncrement">点击 +1</button>
+
+</div>
+<script src="../vue.js"></script>
+<script>
+//    Document.get('abc').on('click');  //dom的方式
+
+     const app = new Vue({
+         el:'#app',
+         data:{
+             number:1
+         },
+        methods:{
+            handleIncrement: function () {
+//                 console.log(app.number);
+                //在通过 v-on 注册的方法中，我们可以直接通过this访问data中的数据成员
+//                console.log(this)
+                this.number++;
+            }
+        }
+     });
+
+//    function handleIncrement() {
+//        console.log("加一区测试");
+//        app.number++;
+//    }
+
+</script>
+</body>
+</html>
