@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloWorld</title>
+</head>
+<body>
+<div id="test">
+    <h1>{{ 1+1 }}</h1> <!--Vue的解析渲染语法{{}}-->
+    <h1>{{ 'hello' + 'world' }}</h1>
+    <h1>{{ message }}</h1> <!-- 绑定的数据成员必须初始化到data选项中，内容名字要一致 -->
+</div>
+<script src="../vue.js"></script>
+<script>
+    // 得到 Vue实例 !
+    const test = new Vue({
+        el:'#test',//el,告诉Vue管理模板的入口节点
+        data:{ //data中的数据被称之为响应式数据MVVM
+            message:'Hello Vue.js!'
+        }
+    })
+</script>
+
+</body>
+</html>
