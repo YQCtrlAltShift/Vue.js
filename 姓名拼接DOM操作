@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+</head>
+<body>
+<!-- 双向绑定即当数据发生改变，DOM会自动更新 -->
+<div id="app">
+    <select name="" id="" v-model="message">
+        <option v-for="(curriculum, index) in curriculums" :key="index">{{curriculum}}</option>
+    </select>
+    <p>{{message}}</p>
+</div>
+
+<script src="../vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+
+                message: 'React.js',
+                curriculums: ['Vue.js', 'React.js', 'Angular.js']
+
+//            message:''
+        }
+    })
+</script>
+
+</body>
+</html>
