@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for里使用对象的方式</title>
+</head>
+<body>
+
+<!--在遍历对象时，会按 Object.keys() 的结果遍历，但是不能保证它的结果在不同的 JavaScript 引擎下都一致-->
+
+<ul id="v-for-object" class="demo">
+    <li v-for="value in object">   <!-- 用 v-for 来遍历一个对象的属性 -->
+        {{ value }}
+    </li>
+    <hr/>
+    <div v-for="(value, name) in object">   <!--提供第二个的参数为 property 名称 (也就是键名) -->
+        {{ name }}: {{ value }}
+    </div>
+    <hr/>
+    <div v-for="(value, name, index) in object">    <!-- 用第三个参数作为索引 -->
+        {{ index }}. {{ name }}: {{ value }}
+    </div>
+</ul>
+
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el: '#v-for-object',
+        data: {
+            object: {
+                title: 'v-for里使用对象的第一个li',
+                author: 'v-for里使用对象的第二个li',
+                publishedAt: 'v-for里使用对象的第三个li'
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
